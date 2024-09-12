@@ -3,9 +3,9 @@
 
 #include <QMainWindow>
 #include <QFileDialog>
-#include <QLabel>
-#include <QDebug>
 #include <QMessageBox>
+#include <QString>
+#include "parser.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -28,5 +28,10 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+    QString fileName;
+
+    void resizeEvent(QResizeEvent* event);
+
+    void readAndPlot(QString& fileName);
 };
 #endif // MAINWINDOW_H
