@@ -35,7 +35,7 @@ void MainWindow::on_btn_addFile_clicked()
 {
     fileName = QFileDialog::getOpenFileName(this, tr("Open File"),
                                                     "/home",
-                                                    tr("Images (*.s1p)"));
+                                                    tr("All files (*.s1p)"));
     // check if file choosed
     if (!fileName.isEmpty())
         readAndPlot(fileName);
