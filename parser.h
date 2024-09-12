@@ -3,8 +3,8 @@
 #include <string>
 #include <vector>
 #include <cmath>
-#include <complex>
 #include <fstream>
+#include <algorithm>
 
 
 class Parser
@@ -22,8 +22,7 @@ public:
 
 private:
     std::string file_name;
-
-    void fit_to_window(const size_t& width, size_t& height);
+    // void normalize(const size_t& width, size_t& height);
 
 
 };

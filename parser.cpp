@@ -32,5 +32,16 @@ void Parser::read_file(const std::string& file_name)
     }
 }
 
+// void Parser::normalize(const size_t& width, size_t& height)
+// {
+//     const auto [min, max] = std::minmax_element(freqs.begin(), freqs.end());
 
+//     const double oldRange {*max - *min};
+//     const double k = width / oldRange;
+
+//     std::for_each(freqs.begin(), freqs.end(),
+//                   [&oldRange, &k](double &n) {(n - oldRange) * k;});
+
+
+// }
 

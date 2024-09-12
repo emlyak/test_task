@@ -7,6 +7,7 @@
 #include <QDebug>
 #include <QMessageBox>
 #include <QString>
+#include "parser.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -29,5 +30,7 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+
+    void resizeEvent(QResizeEvent* event);
 };
 #endif // MAINWINDOW_H
