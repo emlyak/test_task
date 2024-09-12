@@ -24,7 +24,6 @@ private:
     std::string file_name;
 
     void fit_to_window(const size_t& width, size_t& height);
-    void to_real_space();
 
 
 };
