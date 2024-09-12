@@ -6,7 +6,7 @@ void Parser::read_file(const std::string& file_name)
 {
     std::ifstream file(file_name);
 
-    // skip part of file
+    // skip part of file whis metadata
     while(!file.eof())
     {
         std::string inner_buf;
@@ -32,16 +32,4 @@ void Parser::read_file(const std::string& file_name)
     }
 }
 
-// void Parser::normalize(const size_t& width, size_t& height)
-// {
-//     const auto [min, max] = std::minmax_element(freqs.begin(), freqs.end());
-
-//     const double oldRange {*max - *min};
-//     const double k = width / oldRange;
-
-//     std::for_each(freqs.begin(), freqs.end(),
-//                   [&oldRange, &k](double &n) {(n - oldRange) * k;});
-
-
-// }
 

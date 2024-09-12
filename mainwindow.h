@@ -3,8 +3,6 @@
 
 #include <QMainWindow>
 #include <QFileDialog>
-#include <QLabel>
-#include <QDebug>
 #include <QMessageBox>
 #include <QString>
 #include "parser.h"

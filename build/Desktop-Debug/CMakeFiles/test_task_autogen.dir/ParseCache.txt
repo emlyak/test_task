@@ -268,7 +268,6 @@
  mdp:/usr/include/linux/limits.h
  mdp:/usr/include/locale.h
  mdp:/usr/include/pthread.h
- mdp:/usr/include/qt6/QtCore/QDebug
  mdp:/usr/include/qt6/QtCore/QString
  mdp:/usr/include/qt6/QtCore/q20functional.h
  mdp:/usr/include/qt6/QtCore/q20memory.h
@@ -410,28 +409,23 @@
  mdp:/usr/include/qt6/QtGui/qkeysequence.h
  mdp:/usr/include/qt6/QtGui/qpaintdevice.h
  mdp:/usr/include/qt6/QtGui/qpalette.h
- mdp:/usr/include/qt6/QtGui/qpicture.h
  mdp:/usr/include/qt6/QtGui/qpixelformat.h
  mdp:/usr/include/qt6/QtGui/qpixmap.h
  mdp:/usr/include/qt6/QtGui/qpolygon.h
  mdp:/usr/include/qt6/QtGui/qregion.h
  mdp:/usr/include/qt6/QtGui/qrgb.h
  mdp:/usr/include/qt6/QtGui/qrgba64.h
- mdp:/usr/include/qt6/QtGui/qtextdocument.h
  mdp:/usr/include/qt6/QtGui/qtgui-config.h
  mdp:/usr/include/qt6/QtGui/qtguiexports.h
  mdp:/usr/include/qt6/QtGui/qtguiglobal.h
  mdp:/usr/include/qt6/QtGui/qtransform.h
  mdp:/usr/include/qt6/QtGui/qwindowdefs.h
  mdp:/usr/include/qt6/QtWidgets/QFileDialog
- mdp:/usr/include/qt6/QtWidgets/QLabel
  mdp:/usr/include/qt6/QtWidgets/QMainWindow
  mdp:/usr/include/qt6/QtWidgets/QMessageBox
  mdp:/usr/include/qt6/QtWidgets/qdialog.h
  mdp:/usr/include/qt6/QtWidgets/qdialogbuttonbox.h
  mdp:/usr/include/qt6/QtWidgets/qfiledialog.h
- mdp:/usr/include/qt6/QtWidgets/qframe.h
- mdp:/usr/include/qt6/QtWidgets/qlabel.h
  mdp:/usr/include/qt6/QtWidgets/qmainwindow.h
  mdp:/usr/include/qt6/QtWidgets/qmessagebox.h
  mdp:/usr/include/qt6/QtWidgets/qsizepolicy.h

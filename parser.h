@@ -19,12 +19,8 @@ public:
     std::vector<double> freqs;
     std::vector<double> data;
 
-
 private:
     std::string file_name;
-    // void normalize(const size_t& width, size_t& height);
-
-
 };
 
 #endif // PARSER_H

@@ -1,13 +1,23 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
 
+// fit one range to another
+inline void normalize(std::vector<double>& data, const size_t& newMax)
+{
+    const auto [min, max] = std::minmax_element(data.begin(), data.end());
+
+    const double oldRange {*max - *min};
+    const double k = newMax / oldRange;
+
+    std::transform(data.begin(), data.end(), data.begin(),
+                   [&min, &k](double &n) {return ((n - *min) * k);});
+}
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-
-
 }
 
 MainWindow::~MainWindow()
@@ -15,42 +25,27 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-
-
 void MainWindow::on_btn_exit_clicked()
 {
-    // выход из приложения
+    // exit
     this->close();
 }
-
-inline void normalize(std::vector<double>& data, const size_t& newMax)
-{
-        const auto [min, max] = std::minmax_element(data.begin(), data.end());
-
-        const double oldRange {*max - *min};
-        const double k = newMax / oldRange;
-
-        std::transform(data.begin(), data.end(), data.begin(),
-                      [&min, &k](double &n) {return ((n - *min) * k);});
-}
-
 
 void MainWindow::on_btn_addFile_clicked()
 {
     fileName = QFileDialog::getOpenFileName(this, tr("Open File"),
                                                     "/home",
                                                     tr("Images (*.s1p)"));
-    // проверка, выбран ли файл
+    // check if file choosed
     if (!fileName.isEmpty())
         readAndPlot(fileName);
 
-    // выход, если файл не найден
+    // throw a messagebox
     else
     {
         QMessageBox::warning(this, "Загрузка файла", "Файл не выбран");
         return;
     }
-
 }
 
 void MainWindow::readAndPlot(QString& fileName)
@@ -59,7 +54,7 @@ void MainWindow::readAndPlot(QString& fileName)
     parser.read_file(fileName.toStdString());
 
     normalize(parser.freqs, (ui->graphicsView->width() * 0.9));
-    normalize(parser.data, (ui->graphicsView->height() * 0.5));
+    normalize(parser.data, (ui->graphicsView->height() * 0.45));
 
     QGraphicsScene *scene = new QGraphicsScene(ui->graphicsView);
     QPen pen(Qt::black);
