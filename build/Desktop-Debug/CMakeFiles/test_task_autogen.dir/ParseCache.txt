@@ -250,6 +250,7 @@
  mdp:/usr/include/locale.h
  mdp:/usr/include/pthread.h
  mdp:/usr/include/qt6/QtCore/QDebug
+ mdp:/usr/include/qt6/QtCore/QString
  mdp:/usr/include/qt6/QtCore/q20functional.h
  mdp:/usr/include/qt6/QtCore/q20memory.h
  mdp:/usr/include/qt6/QtCore/q20type_traits.h
@@ -438,3 +439,5 @@
 /home/emlyak/projects/test_task/main.cpp
 /home/emlyak/projects/test_task/mainwindow.cpp
  uic:./ui_mainwindow.h
+/home/emlyak/projects/test_task/parser.h
+/home/emlyak/projects/test_task/parser.cpp

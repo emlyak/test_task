@@ -7,6 +7,7 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
+
 }
 
 MainWindow::~MainWindow()
@@ -19,7 +20,8 @@ MainWindow::~MainWindow()
 void MainWindow::on_btn_exit_clicked()
 {
     // выход из приложения
-    this->close();
+    // this->close();
+    ui->label->setText(QString::number(ui->graphicsView->size().height()));
 }
 
 
