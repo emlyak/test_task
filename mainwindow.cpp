@@ -38,35 +38,13 @@ inline void normalize(std::vector<double>& data, const size_t& newMax)
 
 void MainWindow::on_btn_addFile_clicked()
 {
-    QString fileName = QFileDialog::getOpenFileName(this, tr("Open File"),
+    fileName = QFileDialog::getOpenFileName(this, tr("Open File"),
                                                     "/home",
                                                     tr("Images (*.s1p)"));
     // проверка, выбран ли файл
     if (!fileName.isEmpty()) {
-        Parser parser{};
-        parser.read_file(fileName.toStdString());
 
-        normalize(parser.freqs, (ui->graphicsView->width()));
-        normalize(parser.data, (ui->graphicsView->height()));
-
-        QGraphicsScene *scene = new QGraphicsScene(ui->graphicsView);
-        QPen pen(Qt::black);
-
-        const size_t length = parser.freqs.size();
-
-        for (size_t i = 1; i < length; ++i)
-        {
-            scene->addLine(
-                parser.freqs[i - 1],
-                parser.data[i - 1],
-                parser.freqs[i],
-                parser.data[i],
-                pen
-            );
-        }
-
-        ui->graphicsView->setScene(scene);
-
+        readAndPlot(fileName);
 
 
     }
@@ -78,10 +56,38 @@ void MainWindow::on_btn_addFile_clicked()
 
 }
 
+void MainWindow::readAndPlot(QString& fileName)
+{
+    Parser parser{};
+    parser.read_file(fileName.toStdString());
+
+    normalize(parser.freqs, (ui->graphicsView->width() * 0.9));
+    normalize(parser.data, (ui->graphicsView->height() * 0.5));
+
+    QGraphicsScene *scene = new QGraphicsScene(ui->graphicsView);
+    QPen pen(Qt::black);
+
+    const size_t length = parser.freqs.size();
+
+    for (size_t i = 1; i < length; ++i)
+    {
+        scene->addLine(
+            parser.freqs[i - 1],
+            parser.data[i - 1],
+            parser.freqs[i],
+            parser.data[i],
+            pen
+            );
+    }
+
+    ui->graphicsView->setScene(scene);
+}
+
 void MainWindow::resizeEvent(QResizeEvent* event)
 {
     QMainWindow::resizeEvent(event);
 
+    if (!fileName.isEmpty()) readAndPlot(fileName);
     ui->label->setText("resized");
 }
 

@@ -30,7 +30,10 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+    QString fileName;
 
     void resizeEvent(QResizeEvent* event);
+
+    void readAndPlot(QString& fileName);
 };
 #endif // MAINWINDOW_H
