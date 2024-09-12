@@ -53,24 +53,44 @@ void MainWindow::readAndPlot(QString& fileName)
     Parser parser{};
     parser.read_file(fileName.toStdString());
 
+    parser.freqs.emplace_back(0.);
+    parser.data.emplace_back(0.);
+
     normalize(parser.freqs, (ui->graphicsView->width() * 0.9));
     normalize(parser.data, (ui->graphicsView->height() * 0.45));
 
     QGraphicsScene *scene = new QGraphicsScene(ui->graphicsView);
     QPen pen(Qt::black);
 
-    const size_t length = parser.freqs.size();
+    const size_t length = parser.freqs.size() - 1;
 
     for (size_t i = 1; i < length; ++i)
     {
         scene->addLine(
             parser.freqs[i - 1],
-            parser.data[i - 1],
+            -parser.data[i - 1],
             parser.freqs[i],
-            parser.data[i],
+            -parser.data[i],
             pen
             );
     }
+
+    pen.setColor(Qt::red);
+    scene->addLine(
+        parser.freqs[length + 1],
+        -ui->graphicsView->height() * 0.45,
+        parser.freqs[length + 1],
+        ui->graphicsView->height() * 0.45,
+        pen
+        );
+
+    scene->addLine(
+        0,
+        parser.data[length + 1],
+        ui->graphicsView->width() * 0.9,
+        parser.data[length + 1],
+        pen
+        );
 
     ui->graphicsView->setScene(scene);
 }
