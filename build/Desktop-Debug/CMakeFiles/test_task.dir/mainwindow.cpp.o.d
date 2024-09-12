@@ -395,7 +395,7 @@ CMakeFiles/test_task.dir/mainwindow.cpp.o: \
  /usr/include/qt6/QtWidgets/qlayoutitem.h \
  /usr/include/qt6/QtWidgets/qboxlayout.h \
  /usr/include/qt6/QtWidgets/qgridlayout.h \
- /usr/include/qt6/QtWidgets/QLabel /usr/include/qt6/QtWidgets/QMainWindow \
+ /usr/include/qt6/QtWidgets/QMainWindow \
  /usr/include/qt6/QtWidgets/QMenuBar \
  /usr/include/qt6/QtWidgets/qmenubar.h /usr/include/qt6/QtWidgets/qmenu.h \
  /usr/include/qt6/QtWidgets/QPushButton \

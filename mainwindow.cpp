@@ -20,8 +20,7 @@ MainWindow::~MainWindow()
 void MainWindow::on_btn_exit_clicked()
 {
     // выход из приложения
-    // this->close();
-    ui->label->setText(QString::number(ui->graphicsView->size().width()));
+    this->close();
 }
 
 inline void normalize(std::vector<double>& data, const size_t& newMax)
@@ -42,14 +41,12 @@ void MainWindow::on_btn_addFile_clicked()
                                                     "/home",
                                                     tr("Images (*.s1p)"));
     // проверка, выбран ли файл
-    if (!fileName.isEmpty()) {
-
+    if (!fileName.isEmpty())
         readAndPlot(fileName);
 
-
-    }
     // выход, если файл не найден
-    else {
+    else
+    {
         QMessageBox::warning(this, "Загрузка файла", "Файл не выбран");
         return;
     }
@@ -88,6 +85,5 @@ void MainWindow::resizeEvent(QResizeEvent* event)
     QMainWindow::resizeEvent(event);
 
     if (!fileName.isEmpty()) readAndPlot(fileName);
-    ui->label->setText("resized");
 }
 
